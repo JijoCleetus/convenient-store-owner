@@ -1,0 +1,168 @@
+CONVENIENCE STORE MANAGER - COMPLETE DEVELOPMENT GUIDE
+═══════════════════════════════════════════════════════════════════════════════════════════════
+
+PROJECT OVERVIEW
+A full-stack web app for convenience store management with inventory, offers, sales analytics.
+
+TECH STACK
+Frontend: React + Tailwind CSS + Recharts
+Backend: Node.js + Express + MongoDB
+Auth: JWT + bcrypt
+
+FEATURES
+☐ User authentication (login/signup)
+☐ Item management (CRUD)
+☐ Offers & discounts management  
+☐ Sales tracking & dashboard analytics
+☐ Responsive design
+☐ Role-based access
+
+DEVELOPMENT TASK CHECKLIST (42 Tasks - 25-35 hours total)
+
+PHASE 1: PROJECT SETUP [1-2 hrs]
+1. ☐ Create repo: frontend/ + backend/ folders
+2. ☐ Init React+Vite+Tailwind in frontend/
+3. ☐ Init Express app in backend/
+4. ☐ Setup basic routes: /login /dashboard /items /offers
+5. ☐ Configure .env files + .gitignore
+
+PHASE 2: DATABASE MODELS [2-3 hrs]
+6. ☐ User schema: email, passwordHash, name, role
+7. ☐ Item schema: name, sku, category, price, stock
+8. ☐ Offer schema: title, discount, startDate, endDate
+9. ☐ Sale schema: itemId, quantity, totalPrice, date
+10. ☐ Implement MongoDB models + connection
+
+PHASE 3: AUTHENTICATION [3-4 hrs]
+BACKEND:
+11. ☐ POST /auth/signup (bcrypt password)
+12. ☐ POST /auth/login (JWT generation)
+13. ☐ Auth middleware (verify JWT)
+
+FRONTEND:
+14. ☐ AuthContext (global token/user state)
+15. ☐ Login page + form + API
+16. ☐ Signup page + form + API
+17. ☐ ProtectedRoute component
+
+PHASE 4: ITEM MANAGEMENT [4-5 hrs]
+BACKEND:
+18. ☐ GET/POST/PUT/DELETE /items endpoints
+19. ☐ Input validation (Joi/Zod)
+
+FRONTEND:
+20. ☐ ItemsList page (table + search)
+21. ☐ ItemForm (create/edit modal)
+22. ☐ Delete confirmation dialog
+
+PHASE 5: OFFERS MANAGEMENT [3-4 hrs]
+23. ☐ GET/POST/PUT/DELETE /offers endpoints
+24. ☐ OffersList page
+25. ☐ OfferForm (date pickers, discount selector)
+26. ☐ Active offers display section
+
+PHASE 6: DASHBOARD ANALYTICS [4-6 hrs]
+BACKEND:
+27. ☐ POST /sales (record sale)
+28. ☐ GET /sales/summary (KPI + charts data)
+
+FRONTEND:
+29. ☐ Dashboard page (KPI cards)
+30. ☐ Date range filter (7/30 days, custom)
+31. ☐ Revenue line chart (Recharts)
+32. ☐ Category pie chart
+33. ☐ Top items bar chart/list
+
+PHASE 7: UI/UX POLISH [2-3 hrs]
+34. ☐ Responsive layout (Tailwind breakpoints)
+35. ☐ Header + sidebar navigation
+36. ☐ Loading spinners + error states
+37. ☐ Toast notifications (react-hot-toast)
+38. ☐ Design system (colors, typography)
+
+PHASE 8: QUALITY & DEPLOY [2-3 hrs]
+39. ☐ ESLint + Prettier setup
+40. ☐ Basic API endpoint tests
+41. ☐ Environment configs (.env.example)
+42. ☐ Build scripts + Docker (optional)
+
+QUICK START INSTRUCTIONS
+═══════════════════════
+
+PREREQUISITES
+Node.js 18+ | MongoDB | npm/yarn
+
+BACKEND SETUP
+cd backend
+npm install
+cp .env.example .env
+# Edit DB_URI, JWT_SECRET
+npm run dev              # Runs on http://localhost:5000
+
+FRONTEND SETUP  
+cd frontend
+npm install
+cp .env.example .env
+# Edit VITE_API_URL=http://localhost:5000/api
+npm run dev              # Runs on http://localhost:5173
+
+API ENDPOINTS REFERENCE
+═══════════════════════
+Auth:        POST /auth/signup, POST /auth/login
+Items:       GET/POST/PUT/DEL /items[:id]
+Offers:      GET/POST/PUT/DEL /offers[:id]  
+Sales:       POST /sales, GET /sales/summary?from=2026-01-01&to=2026-02-28
+
+ENVIRONMENT VARIABLES
+═══════════════════════
+
+BACKEND (.env)
+PORT=5000
+DB_URI=mongodb://localhost:27017/storemanager
+JWT_SECRET=supersecretkeychangeinproduction
+CORS_ORIGIN=http://localhost:5173
+
+FRONTEND (.env)
+VITE_API_URL=http://localhost:5000/api
+
+FOLDER STRUCTURE
+═══════════════════════
+convenience-store-manager/
+├── frontend/
+│   ├── src/components/     Header, ItemForm, etc.
+│   ├── src/pages/          Login, Dashboard, Items
+│   ├── src/context/        AuthContext.js
+│   └── src/services/       api.js
+├── backend/
+│   ├── models/             User.js Item.js etc.
+│   ├── routes/             auth.js items.js
+│   ├── middleware/         auth.js
+│   └── server.js
+└── README.md
+
+TAILWIND DESIGN SYSTEM
+═══════════════════════
+Primary: #3B82F6 (blue-500)
+Secondary: #10B981 (emerald-500)  
+Accent: #F59E0B (amber-500)
+Font: Inter, sans-serif
+
+DEPLOYMENT OPTIONS
+═══════════════════════
+Backend: Render/Railway/Heroku/VPS+PM2
+Frontend: Vercel/Netlify
+Database: MongoDB Atlas (free tier)
+
+TIME ESTIMATE: 25-35 HOURS TOTAL
+Week 1: Setup+Auth+Items (12 hrs)
+Week 2: Offers+Dashboard (12 hrs)  
+Week 3: Polish+Deploy (6 hrs)
+
+AI TOOL USAGE
+═══════════════════════
+For each task: "Implement task #[N] from README. 
+Use React+Tailwind frontend, Express+Mongoose backend.
+Follow folder structure and API specs exactly."
+
+LICENSE: MIT - Free to use/modify
+Generated: Feb 28, 2026

@@ -1,0 +1,176 @@
+Here’s a concise, copy‑pasteable task list based on that plan.
+
+Project setup
+Create repo with frontend/ and backend/ folders and basic README, .gitignore, etc.
+
+Initialize React app in frontend/ (Vite or CRA).
+
+Install React deps: react, react-dom, react-router-dom, axios, chart library, Tailwind.
+
+Configure Tailwind (config file, PostCSS, import directives).
+
+Set up app routes: /login, /signup, /dashboard, /items, /offers.
+
+Initialize Node app in backend/ with Express.
+
+Install backend deps: express, cors, dotenv, jsonwebtoken, bcrypt, DB driver/ODM, optional validator.
+
+Implement basic server bootstrap with health check route.
+
+Implement database connection module.
+
+Database & models
+Design User schema (email, passwordHash, name, role, timestamps).
+
+Design Item schema (name, sku, category, price, stockQuantity, description, imageUrl, isActive, timestamps).
+
+Design Offer schema (title, description, discountType, discountValue, items/categories, startDate, endDate, isActive).
+
+Design Sale schema (itemId, quantity, totalPrice, date, optional extra fields).
+
+Implement and export model definitions.
+
+Auth (backend)
+Implement POST /auth/signup (validation, hash password, save user).
+
+Implement POST /auth/login (validate, check password, create JWT, return token + user info).
+
+Create auth middleware to verify JWT and attach req.user.
+
+(Optional) Implement role-based access middleware.
+
+Auth (frontend)
+Create AuthContext or similar global auth state.
+
+Implement Login page UI + form + API call.
+
+Implement Signup page UI + form + API call.
+
+Save token (and user) on successful login; implement logout.
+
+Create ProtectedRoute component to guard private routes.
+
+Item management
+Backend
+Implement GET /items with basic pagination and optional search.
+
+Implement GET /items/:id.
+
+Implement POST /items (protected) to create items.
+
+Implement PUT /items/:id to update items.
+
+Implement DELETE /items/:id (soft or hard delete).
+
+Add input validation and error handling for all item routes.
+
+Frontend
+Create ItemsList page with table of items and action buttons.
+
+Add search and basic filters to ItemsList.
+
+Create reusable ItemForm component (create/edit).
+
+Wire ItemForm to create (POST) and update (PUT) endpoints.
+
+Implement delete handler with confirmation and API call.
+
+Add loading and error states for item operations.
+
+Offer management
+Backend
+Implement GET /offers (optionally only active ones by default).
+
+Implement GET /offers/:id.
+
+Implement POST /offers to create offers.
+
+Implement PUT /offers/:id to edit offers.
+
+Implement DELETE /offers/:id to deactivate/delete offers.
+
+Ensure date and discount value validation.
+
+Frontend
+Create OffersList page listing offers and status.
+
+Create OfferForm for create/edit.
+
+Add date pickers and discount type/value selection.
+
+Implement multi-select for items or categories if needed.
+
+Hook up create/edit/delete to API with feedback messages.
+
+Show active offers section somewhere prominent (dashboard or separate).
+
+Sales & dashboard
+Backend
+Implement POST /sales to record a sale.
+
+Implement GET /sales/summary returning aggregated stats (revenue, orders, items, top items, by category, time series).
+
+Support from/to query params for date range.
+
+Implement aggregation logic in DB or application layer.
+
+Frontend
+Create /dashboard page component.
+
+Implement KPI cards: total revenue, total orders, total items sold.
+
+Implement a date range selector (Last 7/30 days, custom).
+
+Implement line/area chart for salesOverTime.
+
+Implement bar/pie chart for salesByCategory.
+
+Implement chart/list for top selling items.
+
+Connect all dashboard components to /sales/summary with filters.
+
+Layout, UX, and routing
+Implement main layout with header (logo, nav, user menu).
+
+Implement optional sidebar for navigation on desktop.
+
+Ensure responsive design with Tailwind breakpoints.
+
+Implement landing behavior:
+
+Not logged in → marketing/info + login/signup buttons.
+
+Logged in → redirect to /dashboard.
+
+Add consistent theming (colors, typography, spacing).
+
+Error handling, validation, and polish
+Add backend error handler middleware returning consistent JSON errors.
+
+Add basic request validation on all write endpoints (auth, items, offers, sales).
+
+Add Axios interceptor on frontend to attach auth token + handle 401s.
+
+Implement global toast/notification system for success/error messages.
+
+Add loading states (spinners/skeletons) for key views.
+
+Testing & tooling
+Add ESLint + Prettier config in frontend and backend; add npm run lint scripts.
+
+Write minimal backend tests for auth, items, and sales summary (even just smoke tests).
+
+(Optional) Add basic frontend tests for Login and Dashboard pages.
+
+Environment & deployment
+Define .env variables for backend (DB URI, JWT secret, port, allowed origin).
+
+Define .env for frontend (API base URL).
+
+Add .env.example files.
+
+Add frontend build script and backend start/build scripts.
+
+(Optional) Add Dockerfile(s) for frontend and backend.
+
+You can hand this straight to an editor AI / codegen tool and say “implement these tasks step by step.” If you want, I can also condense this into a JSON checklist format for automation.
